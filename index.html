@@ -24,7 +24,8 @@
             <div class="col-md-4 ">
                <div class="deposit status">
                  <h5>Deposit</h5>
-                 <h2>$<span id="currentDeposit">00</span></h2>
+                 <h2>$<span id="currentDeposit">00
+                   </span></h2>
                </div>
             </div>
             <div class="col-md-4 ">
@@ -36,7 +37,7 @@
             <div class="col-md-4 ">
                 <div class="balance status">
                     <h5>Balance</h5>
-                    <h2>$00</h2>
+                    <h2>$<span id="currentBalance">1000</span></h2>
                 </div>
             </div>
             <div class="row">
@@ -86,18 +87,31 @@
             const totalDeposit = depositNumber + currentDepositNumber;
             document.getElementById('currentDeposit').innerText = totalDeposit;
             document.getElementById('depositAmont').value = null;
+
+            const currentBalance = document.getElementById('currentBalance').innerText;
+            const currentBalanceNumber = parseFloat(currentBalance);
+                const totalBalance = depositNumber + currentBalanceNumber;
+                document.getElementById('currentBalance').innerText = totalBalance;
         });
         // Withdraw Area    
         const withdrawBtn = document.getElementById('addWithdraw');
         withdrawBtn.addEventListener('click', function(){
             const withdrawAmount = document.getElementById("withdrawAmount").value;
-            const withdrawNumber = patseFloat(withdrawAmount);
+            const withdrawNumber = parseFloat(withdrawAmount);
             const currentWithdraw = document.getElementById("currentWithdraw").innerText;
             const currentWithdrawNumber = parseFloat(currentWithdraw);
             const totalWithdraw = withdrawNumber + currentWithdrawNumber;
             document.getElementById("currentWithdraw").innerText = totalWithdraw;
+                document.getElementById('withdrawAmount').value = null;
 
-        });
-    </script>
+             const currentBalance = document.getElementById('currentBalance').innerText;
+            const currentBalanceNumber = parseFloat(currentBalance);
+                const totalBalance = currentBalanceNumber - withdrawNumber;
+                document.getElementById('currentBalance').innerText = totalBalance;
+
+        });  
+            // Work before see 20-14
+    </script> 
+     
 </body>
 </html>
